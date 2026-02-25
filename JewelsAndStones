@@ -1,0 +1,62 @@
+SOLUTION BY: Bryce Widdoss
+LEET CODE PROBLEM TITLE: Jewels And Stones
+PROBLEM DIIFCULTY: Medium
+PROBLEM DESCRIPTION: 
+You're given strings of jewels representing the types of stones that are jewels, and stones representing the stones you have. 
+Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
+Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+Constraints:
+1 <= jewels.length, stones.length <= 50
+Jewels and stones consist of only English letters.
+All the characters of jewels are unique.
+
+Sample Input/Output:
+Input: jewels = "aA", stones = "aAAbbbb"
+Output: 3
+
+
+
+____________________________________
+SOLUTION IN PYTHON BY GREG HOGG:
+
+
+	class Solution:
+
+	    def numJewelsInStones (self, jewels: str, stones: str) -> int:
+
+	        # O(n + m)
+
+	        s = set(jewels)
+
+	        count = 0
+
+	        for stone in stones:
+
+	            if stone in s:
+
+	                count += 1
+
+	        return count
+
+	 
+
+	# Time Complexity: O(n + m)
+
+	# Space Complexity: O(n)
+
+
+
+Solution Explained:
+At face value, the challenge posed by this LeetCode problem seems trivial- Python's built-in 'in' function, in the context of an if statement, automatically searches through
+a list, string, or other iterable, and returns True if the element is contained within the iterable and False otherwise. This is exactly what this problem requires.
+We can get an accurate count by simply increasing a counter each time we detect a jewel in the stones, and thus the basic code is relatively simple. 
+Where this particular solution gains an advantage over brute force algorithms is in the step of transforming the list of jewels into a set. 
+This one action transforms the time complexity of the problem from O(n * m) to O(n + m). While asking in Python whether or not an element is in a list, a computer must 
+search through every element in the list, resulting in massive inefficiency. Compare this to the near constant time challenge of detecting whether or not an element is in a set due to hashing.
+This particular project serves as an example that even if you can approach a solution with a brute force method, it's always worth considering how a program can be made more efficient,
+specifically in terms of time complexity. While this new 'set' solution is technically less efficient in terms of space complexity, we tend to prioritize time complexity over space complexity. 
+
+
+
+
